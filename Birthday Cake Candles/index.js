@@ -33,15 +33,15 @@ function birthdayCakeCandles(candles) {
     const arrCandles = Array.from(candles);
     const toFindDuplicates = arrCandles => arrCandles.filter((item, index) => arrCandles.indexOf(item) !== index);
     const duplicateElements = Array.from(toFindDuplicates(arrCandles));
+    var tallest = Math.max(...duplicateElements);
     var timesRepeat = 0;
     
-    if (duplicateElements.length > 1) {
-        var tallest = Math.max(...duplicateElements);
-        arrCandles.forEach((v) => (v === tallest && timesRepeat++));
-        
-    } else {
+    if (duplicateElements.length < 1) {
         timesRepeat = arrCandles.filter(x => x == duplicateElements).length;
+        return timesRepeat; 
     }
+    
+    arrCandles.forEach((v) => (v === tallest && timesRepeat++));  
     return timesRepeat;
 }
 
