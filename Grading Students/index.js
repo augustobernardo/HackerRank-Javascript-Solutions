@@ -74,9 +74,7 @@ function main() {
 
     const result = gradingStudents(grades);
 
-    //ws.write(result.join('\n') + '\n');
-
-    ws.write(result + '\n');
+    ws.write(result.join('\n') + '\n');
 
     ws.end();
 }
