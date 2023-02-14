@@ -38,9 +38,6 @@ function main() {
         var numberOfSwaps = 0
         for (var j = 0; j < a.length -1; j++) {
             if (a[j] > a[j + 1]) {
-                /* var temp = a[j+1];
-                a[j+1] = a[j];
-                a[j] = temp; */
                 swap(a, j, j+1);
                 numberOfSwaps++;
             }
