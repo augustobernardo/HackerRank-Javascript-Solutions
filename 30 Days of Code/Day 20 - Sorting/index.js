@@ -20,10 +20,10 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function swap(arr, i, j) {
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+function swap(a, i, j) {
+    var temp = a[i];
+    a[i] = a[j];
+    a[j] = temp;
 }
 
 function main() {
@@ -32,21 +32,25 @@ function main() {
     const a = readLine().replace(/\s+$/g, '').split(' ').map(aTemp => parseInt(aTemp, 10));
 
     // Write your code here
-    // TODO: Implement bubble sort 
-    let numberOfSwaps = 0;
-    
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n - 1; j++) {
-            // Swap adjacent elements if they are in decreasing order
+    var totalNum = 0
+
+    for (var i = 0; i < a.length; i++) {
+        var numberOfSwaps = 0
+        for (var j = 0; j < a.length -1; j++) {
             if (a[j] > a[j + 1]) {
-                swap(a, j, j + 1);
+                /* var temp = a[j+1];
+                a[j+1] = a[j];
+                a[j] = temp; */
+                swap(a, j, j+1);
                 numberOfSwaps++;
             }
         }
+        totalNum += numberOfSwaps;
+        if (numberOfSwaps == 0) {
+            break;
+        }
     }
-    console.log(`Array is sorted in ${numberOfSwaps} swaps.`);
-    console.log(`First Element: ${a[0]}`);
-    console.log(`Last Element: ${a[n - 1]}`);
-
-
+    console.log('Array is sorted in '+totalNum+ ' swaps.')
+    console.log('First Element: '+a[0]);
+    console.log('Last Element: '+a[a.length-1]);
 }
